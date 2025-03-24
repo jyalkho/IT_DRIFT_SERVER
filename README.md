@@ -57,3 +57,46 @@ Lag en OU (f.eks. IT-Avdeling):
 ```powershell
 New-ADOrganizationalUnit -Name "IT-Avdeling" -Path "DC=kuben,DC=local"
 ```
+
+
+## 7️⃣ Sjekk at OU-en er opprettet
+List opp alle OUs for å bekrefte:
+```powershell
+Get-ADOrganizationalUnit -Filter * | Select Name, DistinguishedName
+
+```
+
+8️⃣ Endre standard OU for nye brukere
+Flytt nye brukere automatisk til IT-Avdeling i stedet for standard Users-mappen:
+```powershell
+Redircmp "OU=IT-Avdeling,DC=kuben,DC=local"
+
+```
+
+9️⃣ Opprett en CSV-fil for brukere
+
+1. For å opprette flere brukere samtidig, må du først lage en CSV-fil i Notepad:
+
+2. Åpne Notepad
+
+3. Skriv inn følgende (tilpass etter behov):
+```powershell
+FirstName,LastName,Username,Group
+Jonas,Yalkhoroev,jyk,Student
+Maria,Nilsen,mni,Teacher
+Ola,Normann,on,Student
+```
+
+3. Lagre filen som CSV:
+
+. Klikk File → Save As
+
+. Velg "All Files"
+
+. Gi den navnet ClassWorks.csv
+
+. Pass på at filen ender med .csv
+
+. Klikk Save
+
+✅ CSV-filen er nå klar til å importere brukere i Active Directory!
