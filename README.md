@@ -1,7 +1,8 @@
 ## 🚀 Windows Server-oppsett med PowerShell
-Dette prosjektet automatiserer oppsettet av en Windows Server med Active Directory, DNS, DHCP, filserver, Hyper-V og VLAN ved hjelp av PowerShell. 
+Dette prosjektet setter opp en Windows Server med Active Directory, DNS, DHCP, filserver, Hyper-V og VLAN ved hjelp av PowerShell.
 
-Følg stegene nedenfor for å konfigurere serveren din effektivt.
+Bare følg stegene under for å få serveren din oppe og gå på en enkel måte! 💻⚙️
+
 
 
 ## Steg-for-steg veiledning
@@ -48,7 +49,6 @@ Install-ADDSForest -DomainName "dittdomene.local"
 ## 5️⃣ Start serveren på nytt
 Etter installasjonen av Active Directory må serveren startes på nytt:
 ```powershell
-Etter installasjonen av Active Directory må serveren startes på nytt:
 Restart-Computer -Force
 ```
 
@@ -100,3 +100,28 @@ Ola,Normann,on,Student
 . Klikk Save
 
 ✅ CSV-filen er nå klar til å importere brukere i Active Directory!
+
+
+## 🔟 Importere CSV-filen i PowerShell
+For å importere brukerne fra CSV-filen, åpne PowerShell som administrator og naviger til mappen der filen er lagret:
+```powershell
+cd "C:\Path\To\Your\CSV\Folder"
+$users = Import-Csv -Path "ClassWorks.csv"
+$users
+```
+🔹 Erstatt "C:\Path\To\Your\CSV\Folder" med den faktiske plasseringen av CSV-filen.
+
+## 1️⃣1️⃣ Konfigurere VLAN med Hyper-V (for virtuelle maskiner)
+Opprett en VLAN-switch for Hyper-V:
+```powershell
+New-VMSwitch -Name "VLAN10Switch" -NetAdapterName "Ethernet" -AllowManagementOS $true
+```
+✅ Dette setter opp en virtuell switch kalt "VLAN10Switch" som kobles til Ethernet-adapteren og lar verts-OS-et få tilgang til VLAN-et.
+
+
+## 🎯 Oppsummering
+## Denne PowerShell-skriptingen setter opp en Windows Server med Active Directory, DNS, DHCP, Hyper-V og VLAN, og setter opp blant annet domenekontroller, statisk IP, OU og importerer brukere via en CSV-fil.
+
+## 🚀 Lykke til med serveroppsettet!
+
+
