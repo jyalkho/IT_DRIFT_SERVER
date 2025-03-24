@@ -6,8 +6,8 @@ Følg stegene nedenfor for å konfigurere serveren din effektivt.
 
 ## Steg-for-steg veiledning
 ## 1️⃣ Installer nødvendige roller og funksjoner
-```powershell
 Kjør følgende kommandoer i PowerShell som administrator for å installere nødvendige tjenester:
+```powershell
 
 Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
 Install-WindowsFeature -Name DNS -IncludeManagementTools
@@ -21,9 +21,8 @@ Install-WindowsFeature Web-Server
 
 
 ## 2️⃣ Sett en statisk IP-adresse
-
-```powershell
 Konfigurer en statisk IP for serveren:
+```powershell
 New-NetIPAddress -InterfaceAlias "Ethernet" -IPAddress 192.168.1.10 -PrefixLength 24 -DefaultGateway 192.168.1.1
 Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses 192.168.1.1
 ```
@@ -31,8 +30,8 @@ Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses 192.168.1
 
 
 ## 3️⃣ Endre navn på serveren
-```powershell
 Endre servernavnet og start på nytt:
+```powershell
 Rename-Computer -NewName "Server01" -Force -Restart
 ```
 ✅ Sjekk det nye navnet i Server Manager → Local Server.
@@ -47,6 +46,7 @@ Install-ADDSForest -DomainName "dittdomene.local"
 
 
 ## 5️⃣ Start serveren på nytt
+Etter installasjonen av Active Directory må serveren startes på nytt:
 ```powershell
 Etter installasjonen av Active Directory må serveren startes på nytt:
 Restart-Computer -Force
