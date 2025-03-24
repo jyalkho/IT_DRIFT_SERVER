@@ -44,3 +44,16 @@ Install-ADDSForest -DomainName "dittdomene.local"
 ```
 🔹 Bytt ut "dittdomene.local" med ønsket domene (f.eks. kuben.local).
 🔹 Lag et sterkt passord, bekreft det, skriv "A" og trykk Enter.
+
+
+## 5️⃣ Start serveren på nytt
+```powershell
+Etter installasjonen av Active Directory må serveren startes på nytt:
+Restart-Computer -Force
+```
+
+## 6️⃣ Opprett en Organisatorisk Enhet (OU)
+Lag en OU (f.eks. IT-Avdeling):
+```powershell
+New-ADOrganizationalUnit -Name "IT-Avdeling" -Path "DC=kuben,DC=local"
+```
