@@ -28,3 +28,19 @@ New-NetIPAddress -InterfaceAlias "Ethernet" -IPAddress 192.168.1.10 -PrefixLengt
 Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses 192.168.1.1
 ```
 🔹 Husk: Kjør alltid PowerShell som administrator.
+
+
+3️⃣ Endre navn på serveren
+```powershell
+Endre servernavnet og start på nytt:
+Rename-Computer -NewName "Server01" -Force -Restart
+```
+✅ Sjekk det nye navnet i Server Manager → Local Server.
+
+
+4️⃣ Gjør serveren til en domenekontroller
+```powershell
+Install-ADDSForest -DomainName "dittdomene.local"
+```
+🔹 Bytt ut "dittdomene.local" med ønsket domene (f.eks. kuben.local).
+🔹 Lag et sterkt passord, bekreft det, skriv "A" og trykk Enter.
