@@ -5,8 +5,8 @@ Følg stegene nedenfor for å konfigurere serveren din effektivt.
 
 
 ## Steg-for-steg veiledning
+1️⃣ Installer nødvendige roller og funksjoner
 ```powershell
-Installer nødvendige roller og funksjoner
 Kjør følgende kommandoer i PowerShell som administrator for å installere nødvendige tjenester:
 
 Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
@@ -17,3 +17,14 @@ Install-WindowsFeature -Name Hyper-V -IncludeManagementTools
 Install-WindowsFeature Web-Server
 ```
 ✅ Sjekk installasjonen i Server Manager → Dashboard. Hvis noen funksjoner mangler, prøv på nytt eller start serveren på nytt.
+
+
+
+2️⃣ Sett en statisk IP-adresse
+
+```powershell
+Konfigurer en statisk IP for serveren:
+New-NetIPAddress -InterfaceAlias "Ethernet" -IPAddress 192.168.1.10 -PrefixLength 24 -DefaultGateway 192.168.1.1
+Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses 192.168.1.1
+```
+🔹 Husk: Kjør alltid PowerShell som administrator.
