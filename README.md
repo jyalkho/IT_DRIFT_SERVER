@@ -66,14 +66,14 @@ Get-ADOrganizationalUnit -Filter * | Select Name, DistinguishedName
 
 ```
 
-8️⃣ Endre standard OU for nye brukere
+## 8️⃣ Endre standard OU for nye brukere
 Flytt nye brukere automatisk til IT-Avdeling i stedet for standard Users-mappen:
 ```powershell
 Redircmp "OU=IT-Avdeling,DC=kuben,DC=local"
 
 ```
 
-9️⃣ Opprett en CSV-fil for brukere
+## 9️⃣ Opprett en CSV-fil for brukere
 
 1. For å opprette flere brukere samtidig, må du først lage en CSV-fil i Notepad:
 
