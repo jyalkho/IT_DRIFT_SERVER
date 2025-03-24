@@ -1,5 +1,7 @@
 🚀 Windows Server-oppsett med PowerShell
-Dette prosjektet automatiserer oppsettet av en Windows Server med Active Directory, DNS, DHCP, filserver, Hyper-V og VLAN ved hjelp av PowerShell. Følg stegene nedenfor for å konfigurere serveren din effektivt.
+Dette prosjektet automatiserer oppsettet av en Windows Server med Active Directory, DNS, DHCP, filserver, Hyper-V og VLAN ved hjelp av PowerShell. 
+
+Følg stegene nedenfor for å konfigurere serveren din effektivt.
 
 
 📌 Steg-for-steg veiledning
